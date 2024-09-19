@@ -1,0 +1,17 @@
+body{
+    background-color: #e39ba5;
+}
+
+img{
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    max-width: 30%;
+    width: 700px; 
+    margin-left: auto;
+    margin-right: auto; 
+} 
+
+.boasvindas{
+    
+}
