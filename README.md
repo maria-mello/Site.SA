@@ -7,3 +7,5 @@
 <h3 align='justify'> A nossa empresa é uma cafeteria chamada Lotus, buscamos oferecer o melhor da confeitaria e  criar uma experiência sensorial inesquecível para nossos convidados. </h3>
 
 
+
+
