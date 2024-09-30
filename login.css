@@ -50,6 +50,7 @@ label{
     justify-content: space-around;
     align-content: space-around;
     padding: 2%; 
+    cursor: pointer;
 }
 
 button#entrar,#voltar{
@@ -61,6 +62,7 @@ button#entrar,#voltar{
     border-radius: 15px; 
     display: flex;
     font-family:"Simonetta", serif; color: #8C0444;
+    cursor: pointer;
 }
 
 button#semCadastro{ 
@@ -71,6 +73,7 @@ button#semCadastro{
     font-family: "Simonetta", serif;
     color: #fff;
     height: 25px;
+    cursor: pointer;
 }
 
 .semCadastro{

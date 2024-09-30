@@ -20,6 +20,7 @@ body{
     background-repeat:  repeat;
     background-size:cover;
     height: 112vh;
+    padding: 5%;
 }
 .Rodape{
     background-image: url(Imagens/fundoRodape.png);
@@ -107,4 +108,42 @@ hr{
     align-items: center; 
     gap: 20px;
     
+}
+
+#cardapioImagem{
+    width: 25%
+}
+
+
+#bebidaImagem{
+    width: 25%;
+    margin-right: 0.6%;
+}
+
+button{
+    border: none;
+    border-radius: 10px 10px 10px;
+}
+
+.cafes{
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.doces{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.outrasBebidas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.legendaCardapio{
+    font-size: xx-large;
 }
