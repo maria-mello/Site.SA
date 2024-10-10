@@ -107,17 +107,6 @@ hr{
     display: flex;
     align-items: center; 
     gap: 20px;
-    
-}
-
-#cardapioImagem{
-    width: 25%
-}
-
-
-#bebidaImagem{
-    width: 25%;
-    margin-right: 0.6%;
 }
 
 button{
@@ -136,14 +125,28 @@ button{
     display: flex;
     justify-content: space-around;
     align-items: center;
+   
 }
 
 .outrasBebidas{
     display: flex;
     justify-content: space-around;
     align-items: center;
+ 
 }
 
 .legendaCardapio{
     font-size: xx-large;
+}
+
+#cardapioImagem{
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.legenda{
+    margin: 0;
+    text-align: center;
+    width: 10%;
 }

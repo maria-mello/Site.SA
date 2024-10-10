@@ -10,7 +10,7 @@
     
     <title>Tela de Cadastro</title>
     <link rel="stylesheet" href="cadastro.css">
-    <script src="cadastroElogin.js" ></script>
+   
     
 </head>
 <body>
@@ -63,15 +63,45 @@
 
         <div class="termos"> 
             <input type="checkbox" id="termos" name="termos" required>
-            <label for="termos"> 
-                <p> Li e estou de acordo com os Termos de Uso e a Política de Privacidade. </p> 
-            </label>
-        </div>
-    </div> 
+
+                <p id="botaoabrir"> Li e estou de acordo com os Termos de Uso e a Política de Privacidade.</p>  
+                <div id="fundo" class="sumir"></div>
+
+                    <div id="modal" class="sumir">
+                        <div id="modal-content" class="modal-content">
+                            <h2>Termos de Uso e a Política de Privacidade</h2>
+                            <button id="botaofechar">Fechar</button>
+                        </div>
+                        <div class="corpo modal">
+                            <p> <h3>Termos de Uso</h3> <br>
+                                
+                                Aceitação dos Termos: Ao utilizar nosso site, você concorda em cumprir e estar vinculado a estes Termos de Uso.
+                                Uso do Site: Você se compromete a usar o site apenas para fins legais e de acordo com a legislação vigente. É proibido utilizar o site para atividades fraudulentas ou que possam prejudicar outros usuários.
+                                Conteúdo: Todo o conteúdo disponível no site é protegido por direitos autorais e não pode ser reproduzido sem autorização prévia.
+                                Responsabilidade: Não nos responsabilizamos por danos diretos ou indiretos decorrentes do uso do site ou da impossibilidade de acesso.
+                                Alterações: Reservamo-nos o direito de modificar estes Termos de Uso a qualquer momento. As alterações entrarão em vigor assim que publicadas no site.
+                                Legislação Aplicável: Estes termos são regidos pelas leis do Brasil. <br><br>
+
+
+                                <h3>Política de Privacidade </h3><br>
+                                
+                                
+                                Coleta de Informações: Coletamos informações que você fornece ao se registrar, como nome, e-mail e outras informações pessoais.
+                                Uso das Informações: Utilizamos suas informações para oferecer nossos serviços, enviar atualizações e melhorar sua experiência no site.
+                                Compartilhamento de Informações: Não vendemos suas informações pessoais a terceiros. Podemos compartilhar suas informações com parceiros de confiança para melhorar nossos serviços.
+                                Segurança: Implementamos medidas de segurança para proteger suas informações pessoais. No entanto, não podemos garantir a segurança absoluta.
+                                Cookies: Utilizamos cookies para melhorar sua experiência. Você pode desativar os cookies nas configurações do seu navegador.
+                                Alterações na Política: Poderemos atualizar esta Política de Privacidade. Recomendamos que você a revise periodicamente..</p>
+                        </div>
+                    </div> 
+           
+                        </div>
+        </div> 
     <br> <br>
     <div class="botao"> 
         <button id="voltar" onclick="voltarC()"> <p> Voltar </p> </button>
         <button id="continuar" onclick="Cadastro()">  Cadastrar </button>
     </div>
 </body>
+<script src="cadastroElogin.js"></script>
 </html>
