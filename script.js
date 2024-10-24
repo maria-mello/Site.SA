@@ -26,7 +26,7 @@ function voltarADM() {
  
 function ContinuarADM(){
  
-   window.location.href = "estoque.html"
+   window.location.href = "cadastroProdutos.html"
  } //vai da tela de Login ADM para a tela de estoque;
  
 function voltarC(){
@@ -41,7 +41,7 @@ function continuarC(){
  }  // vai da Tela de Cadastro para a Tela de Login para entrar na conta;
  
  
- // TERMOS E CONDICOES DE USO (inacabado)
+ // TERMOS E CONDICOES DE USO 
  
  // Verifica se a checkbox estava marcada ao carregar a pagina (ao voltar da pagina anterior)
  window.onload = function () {
@@ -74,7 +74,7 @@ function continuarC(){
             // Ao clicar no botao "Continuar", verifica se a checkbox esta marcada
             continuarButton.addEventListener('click', function (e) {
                 // Se a checkbox nao estiver marcada, impede a navegacao
-                if (!termosCheckbox.checked ) {
+                if (!termosCheckbox.checked) {
                     e.preventDefault(); // Impede a navegacao
                 } else {
                     // Se estiver marcada, pode prosseguir para a proxima pagina
@@ -82,7 +82,17 @@ function continuarC(){
                 }
             });
      function voltarC() {
-         window.location.href = "telaPrincipal.html"; // Trocar rota posteriormente, de acordo com o que for decidido pelo grupo.
+         window.location.href = "telaPrincipal.html";
      }
  });
  
+// BOTÃO DOS ÍCONES
+
+function seguirADM(){
+    window.location.href = "loginADM.html"
+}
+
+
+function seguirLogin(){
+    window.location.href = "login.html"
+}
