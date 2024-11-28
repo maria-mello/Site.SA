@@ -1,4 +1,4 @@
-// BOTÃO DOS ÍCONES
+// BOTÃO DOS ÍCONES (tela principal)
 function seguirADM(){
     window.location.href = "loginADM.html"
 }
@@ -10,45 +10,47 @@ function seguirLogin(){
 // JS da tela de Login usuário (com verificação)
 function voltar() {
      window.location.href = "telaPrincipal.html"
- } // volta para a tela inicial caso queira voltar (obviamente);
+ } // volta para a tela inicial caso queira voltar;
  
 function entrar() {
-    let email = document.getElementById('emailU').value
-    let senha = document.getElementById('senhaU').value
+    let email = document.getElementById('emailU').value //pega o id definido no html
+    let senha = document.getElementById('senhaU').value //pega o id definido no html
 
+     // Verifica se os campos estão preenchidos
     if(!email || !senha){
         alert('Preencha todas as informações!')
         return; // impede de prosseguir se não estiverem preenchidos 
 
     } else{
+        // Obtém os usuários cadastrados do localStorage
         const usuarios = JSON.parse(localStorage.getItem('cadastro'));
         console.log(usuarios);
-
-        if (usuarios) {
+        
+        if(usuarios){ 
+             // "repete" sobre cada usuário cadastrado
             for (const chaveDoOBJ in usuarios) {
-                let usuarioExiste = false;
+                let usuarioExiste = false; //verificar se o usuário existe
 
-                console.log('chaveDoOBJ', chaveDoOBJ);
+                console.log('chaveDoOBJ', chaveDoOBJ); 
 
-                const usuario = usuarios[chaveDoOBJ];
+                const usuario = usuarios[chaveDoOBJ]; // Obtém o objeto do usuário atual
                 
                 console.log('usuario', usuario);
-
+                // Verifica se o email e a senha correspondem
                 if (usuario.email === email && usuario.senha === senha) {
                     window.location.href = "telaPrincipal.html"  // apos o login volta para a tela inicial para 'continuar comprando';
                     alert('Bem Vindo(a)!')
-                    usuarioExiste = true;
-                    break;
+                    usuarioExiste = true; // Marca que o usuário foi encontrado
+                    break; // Sai do loop se o login for bem-sucedido
                 } else {
-                    alert('Usuário ou senha incorretos!')
+                    alert('Usuário ou senha incorretos!') //se não for bem sucedido ele fornece a mensagem para corrigir 
                 }
             }
-        } else {
-            alert('Usuário não cadastrado!')
-        }
+    }  else{
+        alert('Usuário não cadastrado!') // essa mensagem so aparece se o usuario ainda não for cadastrado
     }
-
- } 
+ }
+} 
 
 function semCadastro() { 
     window.location.href = "cadastro.html"
@@ -65,18 +67,20 @@ function semCadastro() {
             
         let email = document.getElementById('email').value;
         let dominioPermitido = '@cafeterialotus.com';
-        let senha = 'Lotus1980';
-        const cargoSelecionado = document.getElementById('cargo').value; //pega o cargo selecionado
+        let senha = 'Lotus1980' 
+        const cargoSelecionado = document.getElementById('cargo').value //pega o cargo selecionado
 
-            localStorage.setItem('email', email);
-            localStorage.setItem('cargo', cargoSelecionado);
+        const usuarios = JSON.parse(localStorage.getItem('cadastro')); // pega as informações cadastradas na tela de cadastro
+
+        // localStorage.setItem('email', email);
+        // localStorage.setItem('cargo', cargoSelecionado);
 
         //verifica se o dominio do email esta correto para entrar na tela de cadastro
         if(senha === senha && email.includes(dominioPermitido) && cargoSelecionado === 'gerenteDeEstoque'|| cargoSelecionado === 'administrador'){
             alert ('Bem vindo(a)!')
             window;location.href = "cadastroProdutos.html";
              // se for adm ou gerente de estoque            
-        }else if(senha === senha && email.includes(dominioPermitido) && cargoSelecionado === 'gerente' || cargoSelecionado === 'estagiario'){ // se for gerente ou estagiario
+        }else if(email.includes(dominioPermitido) && cargoSelecionado === 'gerente' || cargoSelecionado === 'estagiario'){ // se for gerente ou estagiario
             window.location.href = 'telaPrincipal.html';
             alert('Bem Vindo(a)!')
         }else{
@@ -84,7 +88,6 @@ function semCadastro() {
             return;
         }
         }
-
 
 // JS para a tela de Cadastro Produtos (para os produtos aparecerem na tela principal)
 
@@ -95,6 +98,7 @@ function semCadastro() {
             const descricao = document.getElementById('descricao').value;
             const urlImage = document.getElementById('urlImage').value;
 
+            // Cria um objeto produto com os dados do formulário
             const produto = {
                 nome,
                 preco,
@@ -102,10 +106,11 @@ function semCadastro() {
                 urlImage
             };
 
+             // Verifica se todos os campos obrigatórios estão preenchidos
             if (produto.nome && produto.preco && produto.descricao) {
-                let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-                produtos.push(produto);
-                localStorage.setItem('produtos', JSON.stringify(produtos));
+                let produtos = JSON.parse(localStorage.getItem('produtos')) || []; // Obtém a lista de produtos do localStorage
+                produtos.push(produto); // Adiciona o novo produto à lista
+                localStorage.setItem('produtos', JSON.stringify(produtos)); // Salva a lista 
 
                 limparFormulario();
                 exibirProdutos();
@@ -123,26 +128,26 @@ function semCadastro() {
         }
 
         function exibirProdutos() {
-            const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+            const produtos = JSON.parse(localStorage.getItem('produtos')) || []; 
             const listaProdutos = document.getElementById('listaProdutos');
             listaProdutos.innerHTML = '';
 
             for (let i in produtos) {
-                const produto = produtos[i];
-                const li = document.createElement('li');
+                const produto = produtos[i]; // Obtém o produto atual
+                const li = document.createElement('li'); // Cria um novo item de lista
                 
-                const img = document.createElement('img');
+                const img = document.createElement('img'); //cria a imagem
                 img.src = produto.urlImage;
                 img.style.margin = '10px';
                 img.style.width = '100px';
                 img.style.height = 'auto';
 
-                li.textContent = `${produto.nome} - R$${produto.preco} - ${produto.descricao}`;
+                li.textContent = `${produto.nome} - R$${produto.preco} - ${produto.descricao}`; // Define o texto do item da lista
 
-                const deleteBtn = document.createElement('button');
+                const deleteBtn = document.createElement('button'); // Cria um botão de deletar
                 deleteBtn.textContent = 'Deletar';
                 deleteBtn.classList.add('delete-btn');
-                deleteBtn.onclick = () => deletarProduto(i);
+                deleteBtn.onclick = () => deletarProduto(i); // Chama a função para deletar o produto quando clicado
 
                 li.appendChild(img);
                 li.appendChild(deleteBtn);
@@ -160,13 +165,13 @@ function semCadastro() {
 
         //Botão para limpar os produtos da lista 
         function limparProdutos() {
-            localStorage.removeItem('produtos');
-            exibirProdutos();
+            localStorage.removeItem('produtos'); //remove todos os itens
+            exibirProdutos(); // atualiza a lista no localstorage
         }
 
         window.onload = exibirProdutos;
 
-        //Produtos cadastrados para tela de login 
+        //Produtos cadastrados para tela de principal 
         function exibirProdutos() {
             const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
             const listaProdutos = document.getElementById('listaProdutos');
